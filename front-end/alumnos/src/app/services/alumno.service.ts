@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlumnoService {
-  private apiUrl = 'http://localhost:8000'; // Asegúrate de que coincide con tu backend
+  private apiUrlCrear = 'http://localhost:8000/crear-alumno/';
+  private apiUrlConsultar = 'http://localhost:8000/consultar-alumno/';
 
   constructor(private http: HttpClient) {}
 
-  crearAlumno(alumnoData: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/crear-alumno/`, alumnoData);
+  crearAlumno(alumno: any): Observable<any> {
+    return this.http.post(this.apiUrlCrear, alumno);
   }
 
-  consultarAlumnosPorGrado(grado: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/consultar-alumno/${grado}/`);
+  consultarAlumnosPorGrado(grado: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrlConsultar}${grado}/`);
   }
 }
