@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Registrar Alumno</h2>
+    <form (ngSubmit)="onSubmit()" #alumnoForm="ngForm">
+      
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre del Alumno</label>
+        <input type="text" id="nombre" class="form-control" [(ngModel)]="alumno.nombre" name="nombre" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" id="fechaNacimiento" class="form-control" [(ngModel)]="alumno.fecha_nacimiento" name="fechaNacimiento" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="nombrePadre" class="form-label">Nombre del Padre</label>
+        <input type="text" id="nombrePadre" class="form-control" [(ngModel)]="alumno.nombre_padre" name="nombrePadre" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="nombreMadre" class="form-label">Nombre de la Madre</label>
+        <input type="text" id="nombreMadre" class="form-control" [(ngModel)]="alumno.nombre_madre" name="nombreMadre" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="grado" class="form-label">Grado</label>
+        <input type="number" id="grado" class="form-control" [(ngModel)]="alumno.grado" name="grado" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="seccion" class="form-label">Sección</label>
+        <input type="text" id="seccion" class="form-control" [(ngModel)]="alumno.seccion" name="seccion" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="fechaIngreso" class="form-label">Fecha de Ingreso</label>
+        <input type="date" id="fechaIngreso" class="form-control" [(ngModel)]="alumno.fecha_ingreso" name="fechaIngreso" required>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+  
+    <div *ngIf="mensaje" class="alert alert-success mt-3">{{ mensaje }}</div>
+  </div>
+  
