@@ -42,17 +42,20 @@ INSTALLED_APPS = [
 
     # Nuestras apps y DRF
     'rest_framework',
+    'rest_framework_api_key',
     'alumnos',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.BasicAuthentication',  # Habilitar autenticación básica
     ],
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticated',  # Requiere que todos los usuarios estén autenticados por defecto
     ]
 }
+
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
